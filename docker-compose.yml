@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:10.6
+    environment:
+      POSTGRES_USER: workschool
+      POSTGRES_PASSWORD: workschool
+      POSTGRES_DB: dev
+      PGDATA: /data
+    ports:
+      - "5432:5432"
+    volumes:
+      - /data
+  app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/:/src/
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: workschool
+      DB_PASS: workschool
+      DB_DATABASE: dev
+    entrypoint: >-
+      sh -c -x "npm install -g nodemon
+      && npm install
+      && npm install -g db-migrate
+      && npm install -g db-migrate-pg
+      && ./run_migrations.sh
+      && nodemon app.js"

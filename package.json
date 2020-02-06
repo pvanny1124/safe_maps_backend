@@ -1,0 +1,33 @@
+{
+  "name": "safe-maps",
+  "version": "1.0.0",
+  "description": "A web-mapping service that uses statistical crime data from NYC to get you to your destination uses the safest routes available.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.2",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/node": "^13.1.2",
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^11.0.0",
+    "db-migrate": "^0.11.6",
+    "db-migrate-pg": "^1.0.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg-promise": "^10.3.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@types/express-jwt": "0.0.42",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.8.0"
+  }
+}
