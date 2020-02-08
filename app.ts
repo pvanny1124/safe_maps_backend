@@ -9,7 +9,9 @@ import { IEventContext } from 'pg-promise';
 import jwt = require('express-jwt');
 import { NextFunction } from 'connect';
 import config from './config';
-require('dotenv').config();
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const fs = require('fs');
 const express = require('express');
@@ -54,6 +56,7 @@ app.use(
       { url: '/auth', methods: ['POST'] },
       { url: '/health', methods: ['GET'] },
       { url: '/users', methods: ['POST', 'GET'] },
+      { url: '/routes', methods: ['GET'] },
     ],
   })
 );

@@ -60,7 +60,7 @@ namespace UsersHandler {
     return async function (req: Request, res: Response) : Promise<void> {
       const { email, password } = req.body;
       try {
-        const isAuthenticated: boolean = await userRepository.authenticateAccount(email, password);
+        const isAuthenticated: boolean | Error = await userRepository.authenticateAccount(email, password);
         if (isAuthenticated) {
           const token: string = new TokenService(config.auth.secret).sign({ email });
           res.status(200).json({ token });
