@@ -4,7 +4,8 @@
  * @version 1.0.0
  */
 import { UserRepository } from './users';
-
+import { RouteRepository } from './routes';
 export {
   UserRepository,
+  RouteRepository,
 }

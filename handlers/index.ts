@@ -4,7 +4,9 @@
  * @version 1.0.0
  */
 import usersHandler = require('./users');
+import routesHandler = require('./routes');
 
 export {
   usersHandler,
+  routesHandler,
 }

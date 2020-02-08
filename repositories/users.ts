@@ -30,7 +30,7 @@ export class UserRepository {
  * @param {string} email email address of the user in question
  * @returns {boolean | error} flag that determines if the account exists or not
  */
-  private async checkAccountExistence(email: string): Promise<boolean> {
+  private async checkAccountExistence(email: string): Promise<boolean | Error> {
     try {
       const { exists } = await this.db.oneOrNone(sql.CHECK_IF_EMAIL_EXISTS, [email]);
       return <boolean>(exists === 1);
@@ -74,7 +74,7 @@ export class UserRepository {
    * @param {string} password password that the user has entered
    * @returns {boolean | error} determines if the given password matches with the hashedPassword in the database 
    */
-  public async authenticateAccount(email: string, password: string) : Promise<boolean> {
+  public async authenticateAccount(email: string, password: string) : Promise<boolean | Error> {
     try {
       const hashedPassword = await this.db.oneOrNone(sql.SELECT_PASSWORD, [email]);
       return <boolean>bcrypt.compareSync(password, hashedPassword);
