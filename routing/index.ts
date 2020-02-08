@@ -1,3 +1,8 @@
+/**
+ * @fileOverview index file packaging all routers
+ * @author Patrick Vanegas
+ * @version 1.0.0
+ */
 import { usersRouting } from './users';
 
 interface Router {

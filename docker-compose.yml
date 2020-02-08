@@ -3,8 +3,8 @@ services:
   db:
     image: postgres:10.6
     environment:
-      POSTGRES_USER: workschool
-      POSTGRES_PASSWORD: workschool
+      POSTGRES_USER: safemaps
+      POSTGRES_PASSWORD: safemaps
       POSTGRES_DB: dev
       PGDATA: /data
     ports:
@@ -22,8 +22,8 @@ services:
       PORT: 3000
       DB_HOST: db
       DB_PORT: 5432
-      DB_USER: workschool
-      DB_PASS: workschool
+      DB_USER: safemaps
+      DB_PASS: safemaps
       DB_DATABASE: dev
     entrypoint: >-
       sh -c -x "npm install -g nodemon
@@ -32,3 +32,9 @@ services:
       && npm install -g db-migrate-pg
       && ./run_migrations.sh
       && nodemon app.js"
+    links:
+      - db
+    depends_on:
+      - db
+volumes:
+  dbdata:

@@ -1,9 +1,15 @@
+/**
+ * @fileOverview Main app file
+ * @author Patrick Vanegas
+ * @version 1.0.0
+ */
 import { Request, Response } from 'express';
 import { routing } from './routing';
 import { IEventContext } from 'pg-promise';
 import jwt = require('express-jwt');
 import { NextFunction } from 'connect';
 import config from './config';
+require('dotenv').config();
 
 const fs = require('fs');
 const express = require('express');

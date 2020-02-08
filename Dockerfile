@@ -13,6 +13,7 @@ WORKDIR /usr/local/src
 
 RUN npm install && \
     npm install -g db-migrate && \
-    npm install -g db-migrate-pg
+    npm install -g db-migrate-pg && \
+    npm run tsc
 
 CMD ["./run_migrations.sh"]
